@@ -20,8 +20,13 @@ public class GenStringsCommander {
     
     public func export(stringsFilesToPath stringsFilePath: String, fromCodeInDirectoryPath codeDirectoryPath: String, customFunction: String?) -> Bool {
         
-        let customFunctionAddon: String = customFunction != nil ? "-s '\(customFunction!)'" : ""
-        let exitCode = system("find \"\(codeDirectoryPath)\" -name '*.[hm]' -o -name '*.swift' | xargs genstrings -o \"\(stringsFilePath)\" \(customFunctionAddon)")
+        var command = "find '\(codeDirectoryPath)' -name '*.[hm]' -o -name '*.swift' | xargs genstrings -o '\(stringsFilePath)'"
+        
+        if let customFunction = customFunction {
+            command += " -s '\(customFunction)'"
+        }
+        
+        let exitCode = system(command)
         
         if exitCode == 0 {
             return true
