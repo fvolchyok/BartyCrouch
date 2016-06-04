@@ -151,9 +151,9 @@ public class CommandLineParser {
         
         let customFunction = StringOption(
             shortFlag: "c",
-            longFlag: "customFunction",
+            longFlag: "custom-function",
             required: false,
-            helpMessage: "Specifies custom function to be parsed by genstrings, instead of the default NSLocalizedString. Will invoke 'genstrings -s \"yourCustomFunctionName\"'"
+            helpMessage: "Specifies a custom function to be parsed by genstrings via '-s' option."
         )
         
         
