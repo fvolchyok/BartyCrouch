@@ -22,7 +22,7 @@ class GenStringsCommanderTests: XCTestCase {
         }
     }
     
-    func testiOSExampleStoryboard() {
+    func testExampleCodeFiles() {
         
         let exportSuccess = GenStringsCommander.sharedInstance.export(stringsFilesToPath: exampleCodeFilesDirectoryPath
             , fromCodeInDirectoryPath: exampleCodeFilesDirectoryPath, customFunction: nil)
